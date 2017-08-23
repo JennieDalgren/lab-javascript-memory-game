@@ -15,17 +15,19 @@ html {
 }
 
 
-.card .back {
-  background-color: #456783;
+.card .front, .card .back {
+  background-color: #333;
 	width:71px;
 	height:71px;
 	float:left;
 	margin:10px;
 	padding:20px;
 	font-size:64px;
+
 }
-.card .front.blocked,
-.card .back.blocked {
+
+.card .front .blocked,
+.card .back .blocked {
   pointer-events: none;
 }
 
