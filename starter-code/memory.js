@@ -68,24 +68,26 @@ $(document).ready(function(){
 
 
     $('.back').on('click', function() {
-      var name = $(this).attr('name');
-      console.log(name);
-      $(this).hide();
-      $(this).siblings().show();
+	if(memoryGame.selectedCards.length <= 1) {
+		var name = $(this).attr('name');
+		console.log(name);
+		$(this).hide();
+		$(this).siblings().show();
 
-      console.log(memoryGame.selectedCards);
+		console.log(memoryGame.selectedCards);
 
-      if (memoryGame.selectedCards.length === 0){
-        memoryGame.selectedCards.push(name);
-        $(".front,.back").addClass('blocked');
+		if (memoryGame.selectedCards.length === 0){
+			memoryGame.selectedCards.push(name);
+			$(".front,.back").addClass('blocked');
 
-      } else if (memoryGame.selectedCards.length === 1){
-        memoryGame.selectedCards.push(name);
-        console.log('two!');
-        // $('div').toggleClass('blocked'); ///How to make it so can't click more than two cards.
-        checkCards();
-      }
-    });
+		} else if (memoryGame.selectedCards.length === 1){
+			memoryGame.selectedCards.push(name);
+			console.log('two!');
+			// $('div').toggleClass('blocked'); ///How to make it so can't click more than two cards.
+			checkCards();
+		}
+	}
+});
 
     //Check if the cards matches
     function checkCards() {
